@@ -1,0 +1,14 @@
+[
+  {
+    "name": "1-board.png",
+    "query": "dashboard/?view=board"
+  },
+  {
+    "name": "2-detail.png",
+    "query": "dashboard/?view=detail&slug=steakhouse-financial"
+  },
+  {
+    "name": "3-filtered.png",
+    "query": "dashboard/?view=filtered&filter=Bridge"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "name": "token-radar-01",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Token launch radar: ranks protocols that record no token by implied value, with a farm plan for each.",
+  "license": "MIT",
+  "engines": { "node": ">=22.6" },
+  "scripts": {
+    "build": "mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts --input ../input/snapshot.json"
+  }
+}

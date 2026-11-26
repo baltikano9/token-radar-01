@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Token Radar · pre-token protocols by implied value</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <div class="scope" aria-hidden="true"><span class="sweep"></span><span class="blip b1"></span><span class="blip b2"></span><span class="blip b3"></span></div>
+      <div>
+        <h1>Token Radar <span class="tag">01</span></h1>
+        <p class="sub">Protocols that record no token, ranked by implied value · Snapshot <strong id="snap-date">14 November 2026</strong> · data: DefiLlama</p>
+      </div>
+    </div>
+    <nav class="tabs" aria-label="Views">
+      <a href="?view=board" data-view="board">Board</a>
+      <a href="?view=filtered" data-view="filtered">Filter</a>
+      <a href="?view=detail" data-view="detail" id="tab-detail">Detail</a>
+    </nav>
+  </header>
+
+  <section class="kpis" id="kpis" aria-label="Board totals"></section>
+
+  <main id="app">
+    <section id="view-board" class="view" hidden>
+      <div class="controls" role="search">
+        <label class="field grow"><span>Search</span><input id="q" type="search" placeholder="Name, slug, category or chain" autocomplete="off"></label>
+        <label class="field"><span>Category</span><select id="cat"><option value="">All categories</option></select></label>
+        <label class="field"><span>Chain</span><select id="chain"><option value="">All chains</option></select></label>
+        <label class="field"><span>Sort by</span>
+          <select id="sort">
+            <option value="rank">Rank</option>
+            <option value="value">Implied value</option>
+            <option value="tvl">TVL</option>
+            <option value="ch7">7-day change</option>
+            <option value="months">Months with no token</option>
+          </select>
+        </label>
+        <button id="dir" class="btn" type="button" aria-label="Toggle sort direction">↑ Asc</button>
+        <label class="toggle"><input id="pre" type="checkbox"><span>Pre-token only</span></label>
+        <label class="toggle"><input id="wl" type="checkbox"><span>Watchlist only</span></label>
+      </div>
+      <div id="filter-banner" class="banner" hidden></div>
+      <p class="legend">
+        <span class="badge pre">No token</span> records no token: ranked first by implied value (modelled FDV)
+        <span class="badge wl">Watchlist</span> no token recorded and TVL ≥ $50M
+        <span class="badge tr">Trades</span> token already trades: residual incentive value, ranked after
+      </p>
+      <div class="table-wrap">
+        <table class="board">
+          <thead>
+            <tr>
+              <th data-sort="rank" class="num">#</th>
+              <th>Protocol</th>
+              <th>Category</th>
+              <th>Chains</th>
+              <th data-sort="tvl" class="num">TVL</th>
+              <th data-sort="ch7" class="num">7d</th>
+              <th data-sort="months" class="num">No token</th>
+              <th data-sort="value" class="num">Implied value</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <p id="empty" class="empty" hidden>No protocol matches these filters.</p>
+      </div>
+      <p class="count" id="count"></p>
+    </section>
+
+    <section id="view-detail" class="view" hidden></section>
+  </main>
+
+  <footer class="foot">
+    <p id="model-note"></p>
+    <p>Implied values are a model estimate from snapshot figures, not a price prediction. "Records no token" means the snapshot lists no token id or symbol.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
